@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const cors = require('cors')
 
 app.use(cors())
+app.use(express.static('build'))
 // Hardcoded phonebook entries
 let phonebookEntries = [
   {
@@ -39,6 +40,7 @@ app.use(
     morgan(':method :url :status :res[content-length] - :response-time ms :req-body')
   );
   
+ 
 //* Endpoint to get phonebook entries
 app.get(`/api/persons`, (req, res) => {
   res.json(phonebookEntries);
